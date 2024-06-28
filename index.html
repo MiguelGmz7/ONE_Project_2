@@ -7,8 +7,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@700&family=Inter:wght@400;700&display=swap"
-        rel="stylesheet">
+    rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <script src="app.js" defer></script>
     <title>JS Game</title>
 </head>
 
@@ -18,12 +19,13 @@
         <div class="container__contenido">
             <div class="container__informaciones">
                 <div class="container__texto">
-                    <h1></h1>
-                    <p class="texto__parrafo"></p>
+                    <h1>Juego del número secreto</h1>
+                    <p class="texto__parrafo">Indica un número secreto entre 1 y 10</p>
                 </div>
-                <input type="number" min="1" max="10" class="container__input">
+                <label for="valor_usuario">Ingresa un número</label>
+                <input type="number" min="1" max="10" class="container__input" id="valor_usuario">
                 <div class="chute container__botones">
-                    <button class="container__boton">Intentar</button>
+                    <button class="container__boton" onclick="play()">Intentar</button>
                     <button class="container__boton" id="reiniciar" disabled>Nuevo juego</button>
                 </div>
             </div>
@@ -34,7 +36,6 @@
 
 
 
-    <script src="app.js" defer></script>
 </body>
 
 </html>
