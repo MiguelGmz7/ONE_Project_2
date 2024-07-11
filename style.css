@@ -109,3 +109,9 @@ button {
     font-size: 32px;
     font-weight: 400;
 }
+
+.pruebas {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
