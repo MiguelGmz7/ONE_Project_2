@@ -16,6 +16,7 @@
 <body>
     <div class="pruebas">
         <h1>Intentos: <span id="counter">0</span></h1> <!--span nos sirve para modificar unicamente el 0 pero tenerlo en una misma linea-->
+        <h2>Numeros sorteados: <span id="list"></span></h2> <!--Cambios-->
     </div>
 
     <div class="container">
@@ -28,7 +29,7 @@
                 <label for="valor_usuario">Ingresa un número</label>
                 <input type="number" min="1" max="10" class="container__input" id="valor_usuario">
                 <div class="chute container__botones">
-                    <button class="container__boton" onclick="play()">Intentar</button>
+                    <button class="container__boton" id="nuevo" onclick="play()">Intentar</button>
                     <button class="container__boton" id="reiniciar" onclick="erase()">Nuevo juego</button>
                 </div>
             </div>
