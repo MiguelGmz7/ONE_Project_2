@@ -6,21 +6,26 @@ let counter = document.querySelector("#counter"); // obtenemos el counter (ahora
 
 let list = [];
 
+const num_max = Number(prompt("Ingresa el numero maximo para jugar"));
 let play_num = genNumSecreto();
 
 let boton = document.querySelector("#nuevo");
+
+const num_max_text = document.querySelector("#num_max");
+num_max_text.textContent = num_max;
+
 
 function play(){ // funcion principal
     user_num = parseInt(document.querySelector("#valor_usuario").value); // obtenemos el valor del input
     console.log(play_num); //revisar el contenido de la lista
     console.log(list); 
 
-    if (user_num > 10 || user_num < 1 || !user_num) { // revisamos si esta en nuestro rango
+    if (user_num > num_max || user_num < 1 || !user_num) { // revisamos si esta en nuestro rango
 
         // si no lo esta, borramos este numero, por lo tanto no existe
         const input  = document.querySelector("#valor_usuario");
         input.value = "";
-        alert("Ingresa un numero valido entre 1 y 10");
+        alert("Ingresa un numero valido entre 1 y "+num_max);
 
     } else {
         // aqui comprobamos si el numero secreto es igual al numero de usuario
@@ -47,16 +52,20 @@ function erase(){
     const input  = document.querySelector("#valor_usuario");
     input.value = "";
     counter.textContent = 0;
-    printParagraph("Indica un número secreto entre 1 y 10", "white");
+    printParagraph("Indica un número secreto entre 1 y "+num_max, "white");
     play_num = genNumSecreto();
     boton.removeAttribute('disabled');
 }
 
 function genNumSecreto(){
-    let secret_num = Math.floor((Math.random() * 10)) + 1; // tenemos un valor aletorio entre 1 y 10
-    if (list.includes(secret_num)) {
+    let secret_num = Math.floor((Math.random() * num_max)) + 1; // tenemos un valor aletorio entre 1 y 10
+    if (list.length == num_max){
+        alert("ya no existen mas numeros")
+        return null;
+    } else if (list.includes(secret_num)) {
         return genNumSecreto();
-    } else {
+    } 
+    else {
         list.push(secret_num);
         return secret_num;
     }
